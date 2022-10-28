@@ -14,8 +14,11 @@ use App\Http\Controllers\ChirpController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/dashboard', function () {
@@ -25,7 +28,7 @@ Route::get('/dashboard', function () {
 Route::resource('chirps', ChirpController::class)
     // ->only(['index', 'store'])
     // ->only(['index', 'store','edit','update'])
-    ->only(['index', 'store','edit','update', 'destroy'])
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
     ->middleware(['auth', 'verified']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
