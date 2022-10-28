@@ -13,9 +13,11 @@
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <x-primary-button class="mt-4">{{ __('Chirp') }}</x-primary-button>
         </form>
-        <div class="mt-6 bg-white divide-y rounded-lg shadow-sm">
+        <div class="mt-4 bg-white divide-y rounded-lg shadow-sm">
             @foreach ($chirps as $chirp)
-            <div class="flex p-6 space-x-2">
+            <div class="flex p-6 space-x-2
+            @if (Auth::user()->id === $chirp->user_id) border-r-4 border-r-red-500 @else border-l-4 border-l-indigo-500 @endif
+            ">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-600 -scale-x-100" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
